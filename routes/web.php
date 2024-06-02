@@ -2,6 +2,13 @@
 
 use App\Http\Controllers\GroupController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TimelineController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::resource('timelines', TimelineController::class);
 
 Route::get('/groups', [GroupController::class, 'index'])->name('groups.index');
 Route::get('/groups/create', [GroupController::class, 'create'])->name('groups.create');
